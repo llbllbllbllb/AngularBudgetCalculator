@@ -1,0 +1,113 @@
+@import '../../../main-style.scss';
+
+
+.root {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    &:hover {
+        .x-icon-button{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .x-icon-button {
+        display: flex;
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        background: $red;
+        border-radius: 50%;
+        right: -15px;
+        top: -15px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transform: scale(0);
+        opacity: 0;
+        transition: opacity 0.1s ease-in, transform 0.1s ease-in;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+
+        .cross-icon:before, .cross-icon:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            background: $light-grey;
+
+
+          }
+
+          .cross-icon {
+            width: 15px;
+            height: 15px;
+            position: relative;
+            transform:rotate(45deg);
+            -ms-transform:rotate(45deg); /* IE 9 */
+            -webkit-transform:rotate(45deg); /* Safari and Chrome */
+         }
+          
+          .cross-icon:before {
+            left: 50%;
+            width: 15%;
+            margin-left: -7.5%;
+            height: 100%;
+          }
+          .cross-icon:after {
+            top: 50%;
+            height: 15%;
+            margin-top: -7.5%;
+            width: 100%;
+          }
+    }
+
+
+}
+
+.budget-item {
+    display: flex;
+    width: 100%;
+    background-color: $light-grey;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in;
+    &:hover {
+        background-color: darken($color: $light-grey, $amount: 5%);
+    }
+
+    .description {
+        display: flex;
+        flex-grow: 1;
+        font-size: 18px;
+        margin-left: 5px;
+        align-items: center;
+    }
+
+    .amount {
+        padding: 5px;
+        border-radius: 3px;
+    }
+}
+
+.expense {
+    p{
+        color: $red;
+    }
+    .amount {
+        background-color: $light-red;
+    }
+}
+
+.income {
+    p{
+        color: $green;
+    }
+    .amount {
+        background-color: $light-green;
+    }
+}
